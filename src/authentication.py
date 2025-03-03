@@ -29,7 +29,8 @@ def show_authenticator():
 
     # Se o usuário ainda não está autenticado, exibe o formulário de login
     if not ss.authenticated:
-        with st.columns([3])[1]:  # Centraliza o formulário
+        col1, col2, col3 = st.columns([1, 2, 1])  # Centraliza a UI (coluna do meio é maior)
+        with col2:  # Usar apenas a segunda coluna para centralizar o login
             st.title('Login')
             username = st.text_input('Username')
             password = st.text_input('Password', type='password')
@@ -43,4 +44,3 @@ def show_authenticator():
                     st.error('O username ou password está incorreto')
 
     st.stop()  # Impede que o código continue sendo executado caso o usuário não esteja autenticado
-
