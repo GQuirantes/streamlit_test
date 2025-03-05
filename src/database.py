@@ -13,3 +13,4 @@ def get_connection():
         database=db_params["database"]
     )
     return conn
+    
