@@ -1,5 +1,6 @@
 import streamlit as st
-from src.authentication import get_connection
+from src.authentication import show_authenticator
+from src.database import get_connection  # Agora importamos de database.py
 
 def buscar_telefone(ext_id):
     """Busca o número de telefone no banco de dados com base no EXT_ID."""
@@ -21,6 +22,8 @@ def buscar_telefone(ext_id):
 
 # Interface do Streamlit
 st.set_page_config(page_title="Buscador de Telefones", page_icon="📞")
+
+show_authenticator()  # Exibe o login
 
 st.title('Buscador de Telefones! 📞')
 
