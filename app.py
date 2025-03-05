@@ -20,22 +20,23 @@ def buscar_telefone(ext_id):
         return None
 
 # Interface do Streamlit
-show_authenticator()
+st.set_page_config(page_title="Buscador de Telefones", page_icon="📞")
 
 st.title('Buscador de Telefones! 📞')
 
 # Input para EXT_ID
-ext_id = st.text_input("Insira o EXT_ID:")
+ext_id = st.text_input("Insira o EXT_ID:", placeholder="Digite o EXT_ID aqui...")
 
 # Botão para buscar o número de telefone
-if st.button("Buscar Telefone"):
-    if ext_id:
+if st.button("Buscar Telefone 🔍"):
+    if ext_id.strip():  # Evita espaços em branco
         phone_number = buscar_telefone(ext_id)
         if phone_number:
-            st.success(f"Número de telefone encontrado: {phone_number}")
+            st.success(f"📲 Número de telefone encontrado: {phone_number}")
         else:
-            st.error("Nenhum telefone encontrado para este EXT_ID.")
+            st.error("❌ Nenhum telefone encontrado para este EXT_ID.")
     else:
-        st.warning("Por favor, insira um EXT_ID.")
+        st.warning("⚠️ Por favor, insira um EXT_ID válido.")
 
-st.write("Vamos testar")
+# Mensagem de rodapé
+st.caption("📌 Aplicação de busca de telefones segura e eficiente.")
